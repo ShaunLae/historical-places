@@ -1,8 +1,9 @@
+import { Link } from "react-router";
 import Button from "./Button";
 
 function Card({ item }) {
   // console.log(item);
-  const { name, image, description } = item;
+  const { name, image, description, id } = item;
   return (
     <div className="p-6 aspect-4/3 bg-yellow-50 rounded-2xl text-center">
       <img src={image} alt="img" className="aspect-4/2 object-cover w-full" />
@@ -14,10 +15,12 @@ function Card({ item }) {
           <i className="fa-solid fa-location-pin"></i>
           Mark as Visited
         </Button>
-        <Button>
-          View Details
-          <i className="fa-solid fa-arrow-right"></i>
-        </Button>
+        <Link to={`/place/${id}`}>
+          <Button>
+            View Details
+            <i className="fa-solid fa-arrow-right"></i>
+          </Button>
+        </Link>
       </div>
     </div>
   );

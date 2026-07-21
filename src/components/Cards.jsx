@@ -8,8 +8,8 @@ function Cards() {
         All Historical Places
       </h2>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-16">
-        {data.map((item, index) => {
-          return <Card key={index} item={item} />;
+        {data.map((item, id) => {
+          return <Card key={id} item={item} />;
         })}
       </div>
     </>
