@@ -3,20 +3,18 @@ import Button from "./Button";
 import Card from "./Card";
 import data from "/data.json";
 
-
-
 function ViewDetails() {
     const {id} = useParams();
+    // console.log(typeof id); // string
     // const place = data.filter((item)=>{
     //     return id === item.id;
-
     // })
-    // console.log(place)
+    const matchplace = (placeid) => {
+      return data.filter(item => item.id === placeid)
+    }
     
   return (
-    <div className="bg-gray-900 w-full h-screen">
-
-        
+    <div className="bg-gray-900 w-full h-screen p-8">
       <h2 className="text-3xl font-bold text-white mb-12">Historical Places</h2>
       <Link to={"/"}>
         <Button>
@@ -24,7 +22,7 @@ function ViewDetails() {
         </Button>
         </Link>
       <div className={`lg:w-4/12 md:w-6/12 mx-auto mb-12`}>
-        <Card item={data[id]} />
+        <Card item={matchplace(Number(id))[0]} />
       </div>
     </div>
   );
