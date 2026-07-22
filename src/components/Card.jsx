@@ -6,7 +6,7 @@ function Card({ item }) {
   // console.log(item);
   const { name, image, description } = item;
   const {id} = useParams();
-  console.log(id);
+  // console.log(id);
   return (
     <div className="p-6 aspect-4/3 bg-yellow-50 rounded-2xl text-center">
       <img src={image} alt="img" className="aspect-4/2 object-cover w-full" />

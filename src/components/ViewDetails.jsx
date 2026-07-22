@@ -9,9 +9,8 @@ function ViewDetails() {
     // const place = data.filter((item)=>{
     //     return id === item.id;
     // })
-    const matchplace = (placeid) => {
-      return data.filter(item => item.id === placeid)
-    }
+    const matchplace = data.filter(item => item.id === Number(id));
+    // console.log(matchplace);
     
   return (
     <div className="bg-gray-900 w-full h-screen p-8">
@@ -20,9 +19,9 @@ function ViewDetails() {
         <Button>
           Go Back
         </Button>
-        </Link>
+      </Link>
       <div className={`lg:w-4/12 md:w-6/12 mx-auto mb-12`}>
-        <Card item={matchplace(Number(id))[0]} />
+        <Card item={matchplace[0]} />
       </div>
     </div>
   );
