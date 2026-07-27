@@ -1,8 +1,8 @@
-function Button({ children }) {
+function Button({ onClick, children }) {
   return (
-    <div className="bg-cyan-500 cursor-pointer text-white text-sm rounded-sm px-2 py-1 inline-block">
+    <button onClick={onClick} className={`bg-cyan-500 cursor-pointer text-white text-sm rounded-sm px-2 py-1 inline-block `}>
       {children}
-    </div>
+    </button>
   );
 }
 

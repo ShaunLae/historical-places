@@ -1,16 +1,14 @@
 import { Link, useParams } from "react-router";
 import Button from "./Button";
 import Card from "./Card";
-import data from "/data.json";
+// import data from "/data.json";
+import { useSelector } from "react-redux";
 
 function ViewDetails() {
-    const {id} = useParams();
-    // console.log(typeof id); // string
-    // const place = data.filter((item)=>{
-    //     return id === item.id;
-    // })
-    const matchplace = data.filter(item => item.id === Number(id));
-    // console.log(matchplace);
+    const {id} = useParams();   // typeof id - string
+    const markunmark = useSelector((state) => state.markunmark);
+    // const matchplace = data.filter(item => item.id === Number(id)); // array
+    const matchplace = markunmark.find(item => item.id === Number(id));   // object
     
   return (
     <div className="bg-gray-900 w-full h-screen p-8">
@@ -21,7 +19,7 @@ function ViewDetails() {
         </Button>
       </Link>
       <div className={`lg:w-4/12 md:w-6/12 mx-auto mb-12`}>
-        <Card item={matchplace[0]} />
+        <Card item={matchplace} />
       </div>
     </div>
   );
